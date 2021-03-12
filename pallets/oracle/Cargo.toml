@@ -1,0 +1,42 @@
+[package]
+authors = ['Cable Oracle Developers <https://github.com/CableOracle>']
+description = 'oracle pallet that makes off-chain data available on-chain.'
+edition = '2018'
+license = 'Apache 2.0'
+name = 'pallet-oracle'
+repository = 'https://github.com/CableOracle'
+version = '3.0.0'
+
+[package.metadata.docs.rs]
+targets = ['x86_64-unknown-linux-gnu']
+
+# alias "parity-scale-code" to "codec"
+[dependencies.codec]
+default-features = false
+features = ['derive']
+package = 'parity-scale-codec'
+version = '2.0.0'
+
+[dependencies]
+serde = { version = "1.0.119" }
+serde_derive = { version = "1.0.119", optional = true }
+rustc-hex = { default-features = false, version = "2.0.1" }
+frame-support = { default-features = false, version = '3.0.0' }
+frame-system = { default-features = false, version = '3.0.0' }
+sp-std = { default-features = false, version = '3.0.0' }
+sp-io = { default-features = false, version = '3.0.0' }
+sp-runtime = { default-features = false, version = '3.0.0' }
+
+[dev-dependencies]
+serde = { version = "1.0.119" }
+sp-core = { default-features = false, version = '3.0.0'  }
+sp-io = { default-features = false, version = '3.0.0' }
+sp-runtime = { default-features = false, version = '3.0.0' }
+
+[features]
+default = ['std']
+std = [
+    'codec/std',
+    'frame-support/std',
+    'frame-system/std',
+]
